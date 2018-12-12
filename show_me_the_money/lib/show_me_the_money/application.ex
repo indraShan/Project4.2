@@ -9,9 +9,9 @@ defmodule ShowMeTheMoney.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      ShowMeTheMoneyWeb.Endpoint
+      ShowMeTheMoneyWeb.Endpoint,
       # Starts a worker by calling: ShowMeTheMoney.Worker.start_link(arg)
-      # {ShowMeTheMoney.Worker, arg},
+      # {CryptoCoin.Simulator, nil},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
