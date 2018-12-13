@@ -38,12 +38,21 @@ defmodule CryptoCoin.Simulator do
       # chain length, number of nodes, number of wallets,
       # public to amount map, chain length to time to generate nounce map,
       # block chain length to nounce value map
-      send(
+      # IO.puts "Came inside notify_state_change_listener"
+      IO.puts "actual = #{state.chain_length}"
+      # IO.inspect state.state_change_listener
+      GenServer.cast(
         state.state_change_listener,
         {:network_state, state.chain_length, state.nodes |> length, state.wallets |> length,
          state.wallets_amount_map, state.block_chain_length_time_map,
          state.block_chain_length_nounce_value_map}
       )
+      # send(
+      #   state.state_change_listener,
+      #   {:network_state, state.chain_length, state.nodes |> length, state.wallets |> length,
+      #    state.wallets_amount_map, state.block_chain_length_time_map,
+      #    state.block_chain_length_nounce_value_map}
+      # )
     end
   end
 
